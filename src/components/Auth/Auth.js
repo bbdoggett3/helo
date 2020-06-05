@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import Nav from '../Nav/Nav';
-import axios from 'axios';
+import axios from "axios";
+import "./Auth.css";
 
 class Auth extends Component {
   constructor() {
@@ -32,54 +33,68 @@ class Auth extends Component {
 
   register = (event) => {
     event.preventDefault();
-    const {username, password} = this.state
-    axios.post('/auth/register', {username, password})
-    .then( res => {
-      this.props.loginUser(res.data)
-      this.props.history.push('/dashboard')
-    })
-    .catch(error => {
-        alert(error, 'Could not log in')
-    })
-}
+    const { username, password } = this.state;
+    axios
+      .post("/auth/register", { username, password })
+      .then((res) => {
+        this.props.loginUser(res.data);
+        this.props.history.push("/dashboard");
+      })
+      .catch((error) => {
+        alert(error, "Could not log in");
+      });
+  };
 
-
-login = (event) => {
-  event.preventDefault();
-  const {username, password} = this.state
-  axios.post('/auth/login', {username, password})
-  .then( res => {
-    this.props.loginUser(res.data)
-    this.props.history.push('/dashboard')
-  })
-  .catch(error => {
-      alert('Could not log in')
-  })
-}
+  login = (event) => {
+    event.preventDefault();
+    const { username, password } = this.state;
+    axios
+      .post("/auth/login", { username, password })
+      .then((res) => {
+        this.props.loginUser(res.data);
+        this.props.history.push("/dashboard");
+      })
+      .catch((error) => {
+        alert("Could not log in");
+      });
+  };
 
   render() {
     const { username, password } = this.state;
     return (
-      <div>
-        <h1>This is Auth Component</h1>
-        <form>
-          <input
-            type="text"
-            placeholder="username"
-            name="username"
-            value={username}
-            onChange={(event) => this.changeHandler(event)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            value={password}
-            onChange={(event) => this.changeHandler(event)}
-          />
+      <div className="auth-container">
+        <form className="form-container">
+          <img src="https://cdn.glitch.com/875fcc3a-ee91-4d48-806c-d5b121d9c21c%2Fsmile%20face.png?v=1591393051733" alt="site logo"/>
+          <h1>Helo</h1>
+          <div className= "auth-info">
+            User:
+            <input
+              className="auth-input-box"
+              type="text"
+              name="username"
+              value={username}
+              onChange={(event) => this.changeHandler(event)}
+            />
+            Pasword:
+            <input
+              className="auth-input-box"
+              type="password"
+              name="password"
+              value={password}
+              onChange={(event) => this.changeHandler(event)}
+            />
+          </div>
 
-          <input onSubmit={(event) => this.login(event)} type="submit" value="Login" />
-          <input onSubmit={(event) => this.register(event)} type="submit" value="Register" />
+          <input className="login-register-btn"
+            onSubmit={(event) => this.login(event)}
+            type="submit"
+            value="Login"
+          />
+          <input className="login-register-btn"
+            onSubmit={(event) => this.register(event)}
+            type="submit"
+            value="Register"
+          />
         </form>
       </div>
     );

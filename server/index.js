@@ -21,8 +21,8 @@ app.use(session({
 //Auth:
 app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
-// app.delete('/auth/logout', authCtrl.logout)
-// app.get('/auth/user', authCtrl.getUser)
+app.delete('/auth/logout', authCtrl.logout)
+app.get('/auth/user', authCtrl.getUser)
 
 massive({
     connectionString: CONNECTION_STRING,
