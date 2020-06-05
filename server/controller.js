@@ -31,7 +31,7 @@ module.exports = {
     const user = await db.check_user(username);
 
     if (!user[0]) {
-      return res.status(404).send("User does not exist");
+      return res.status(400).send("User does not exist");
     } else {
       const authenticated = bcrypt.compareSync(password, user[0].password);
       if (authenticated) {

@@ -34,7 +34,6 @@ class Auth extends Component {
   };
 
   register = (event) => {
-    event.preventDefault();
     const { username, password } = this.state;
     axios
       .post("/auth/register", { username, password })
@@ -63,9 +62,10 @@ class Auth extends Component {
 
   render() {
     const { username, password } = this.state;
+    console.log(this.props.history)
     return (
       <div className="auth-container">
-        <form className="form-container">
+        <form className="form-container" onSubmit={this.login}>
           <img src="https://cdn.glitch.com/875fcc3a-ee91-4d48-806c-d5b121d9c21c%2Fsmile%20face.png?v=1591393051733" alt="site logo"/>
           <h1>Helo</h1>
           <div className= "auth-info">
@@ -88,13 +88,14 @@ class Auth extends Component {
           </div>
 
           <input className="login-register-btn"
-            onSubmit={(event) => this.login(event)}
+            // onSubmit={(event) => this.login(event)}
             type="submit"
-            value="Login"
+            value="Submit"
           />
           <input className="login-register-btn"
-            onSubmit={(event) => this.register(event)}
-            type="submit"
+            // onSubmit={(event) => this.register(event)}
+            type="button" 
+            onClick={() => this.register() }
             value="Register"
           />
         </form>
