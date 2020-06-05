@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import Nav from '../Nav/Nav';
+import axios from 'axios';
 
 class Auth extends Component {
   constructor() {
@@ -29,6 +30,33 @@ class Auth extends Component {
     });
   };
 
+  register = (event) => {
+    event.preventDefault();
+    const {username, password} = this.state
+    axios.post('/auth/register', {username, password})
+    .then( res => {
+      this.props.loginUser(res.data)
+      this.props.history.push('/dashboard')
+    })
+    .catch(error => {
+        alert(error, 'Could not log in')
+    })
+}
+
+
+login = (event) => {
+  event.preventDefault();
+  const {username, password} = this.state
+  axios.post('/auth/login', {username, password})
+  .then( res => {
+    this.props.loginUser(res.data)
+    this.props.history.push('/dashboard')
+  })
+  .catch(error => {
+      alert('Could not log in')
+  })
+}
+
   render() {
     const { username, password } = this.state;
     return (
@@ -50,8 +78,8 @@ class Auth extends Component {
             onChange={(event) => this.changeHandler(event)}
           />
 
-          <input type="submit" value="Login" />
-          <input type="submit" value="Register" />
+          <input onSubmit={(event) => this.login(event)} type="submit" value="Login" />
+          <input onSubmit={(event) => this.register(event)} type="submit" value="Register" />
         </form>
       </div>
     );
