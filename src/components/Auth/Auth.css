@@ -17,6 +17,7 @@
     background-image: linear-gradient(90deg, #ff9770 0%, #ffd670 100%);
     color: white;
     font-family: 'Open Sans', sans-serif;
+    box-shadow: 5px 10px 35px  black;
     
 }
 .form-container h1 {

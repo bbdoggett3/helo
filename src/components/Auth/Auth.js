@@ -2,6 +2,8 @@ import React, { Component } from "react";
 // import Nav from '../Nav/Nav';
 import axios from "axios";
 import "./Auth.css";
+import { connect } from 'react-redux';
+import { loginUser} from '../../ducks/reducer';
 
 class Auth extends Component {
   constructor() {
@@ -101,4 +103,5 @@ class Auth extends Component {
   }
 }
 
-export default Auth;
+const mapToStateProps = reduxState => reduxState
+export default connect(mapToStateProps, {loginUser})(Auth);
