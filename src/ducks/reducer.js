@@ -11,13 +11,12 @@ const LOGIN_USER = 'LOGIN_USER'
 const LOGOUT_USER = 'LOGOUT_USER'
 const GET_USER = 'GET_USER'
 
-export function loginUser(id, username, password) {
+export function loginUser({userId, username}) {
     return {
         type: LOGIN_USER,
         payload: {
-            id,
+            id: userId,
             username, 
-            password
         }
     }
 }
@@ -41,7 +40,7 @@ export function getUser() {
 export default function(state = initialState, action) {
     switch (action.type) {
         case LOGIN_USER:
-            return {...state, user: action.payload, isLoggedIn: true }
+            return {...state, ...action.payload, isLoggedIn: true }
         case LOGOUT_USER:
             return {...state, ...action.payload}
         case GET_USER + '_PENDING':

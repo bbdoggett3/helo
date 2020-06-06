@@ -33,7 +33,7 @@ class Auth extends Component {
     });
   };
 
-  register = (event) => {
+  register = () => {
     const { username, password } = this.state;
     axios
       .post("/auth/register", { username, password })
@@ -52,6 +52,7 @@ class Auth extends Component {
     axios
       .post("/auth/login", { username, password })
       .then((res) => {
+        console.log(res.data)
         this.props.loginUser(res.data);
         this.props.history.push("/dashboard");
       })

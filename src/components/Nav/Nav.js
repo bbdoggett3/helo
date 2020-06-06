@@ -10,11 +10,11 @@ function Nav(props) {
     return (
       <div>
         <nav className = "navbar-container">
+            <img className="profile-pic" src="https://robohash.org/Harry" alt = "profile of a person"></img>
             <h3>Welcome back {props.username}</h3>
-            <img src="https://cdn.glitch.com/875fcc3a-ee91-4d48-806c-d5b121d9c21c%2Fme.jpg?v=1569425179160" alt = "profile of a person"></img>
-            <Link to='/dashboard'><button>Home</button></Link>
-            <Link to='/new'><button>New Post</button></Link>
-            <Link to='/'><button>Logout</button></Link>
+            <Link to='/dashboard'><span><img className="icon-pic" src="https://cdn.glitch.com/875fcc3a-ee91-4d48-806c-d5b121d9c21c%2Fhome%20button.png?v=1591411136554"  alt="house icon"/></span></Link>
+            <Link to='/new'><span><img className="icon-pic" src="https://cdn.glitch.com/875fcc3a-ee91-4d48-806c-d5b121d9c21c%2Fnew%20file%20folder.png?v=1591412181828" alt="new post icon"/></span></Link>
+            <Link to='/'><span><img className="logout-btn" src="https://cdn.glitch.com/875fcc3a-ee91-4d48-806c-d5b121d9c21c%2Flogout%20button.png?v=1591412517415" alt="logout button"/></span></Link>
         </nav>
         
       </div>
