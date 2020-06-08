@@ -1,0 +1,17 @@
+.dashboard-search-container {
+    background-color: grey;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.search-bar {
+    margin-top: 10px;
+}
+
+#search-pic {
+    color: orange;
+    background-color: orange;
+}

@@ -70,7 +70,7 @@ class Auth extends Component {
           <img src="https://cdn.glitch.com/875fcc3a-ee91-4d48-806c-d5b121d9c21c%2Fsmile%20face.png?v=1591393051733" alt="site logo"/>
           <h1>Helo</h1>
           <div className= "auth-info">
-            User:
+            Username:
             <input
               className="auth-input-box"
               type="text"
