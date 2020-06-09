@@ -15,18 +15,6 @@ class Auth extends Component {
     };
   }
 
-  //     componentDidMount(){
-  //         this.checkBrowserLocation();
-  //     }
-
-  //   checkBrowserLocation = () => {
-  //     if (this.props.location.pathname === '/') {
-  //       return;
-  //     } else {
-  //       return {routes};
-  //     }
-  //   };
-
   changeHandler = (event) => {
     this.setState({
       [event.target.name]: event.target.value,

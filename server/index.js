@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const authCtrl = require('./controller');
-const session = require('express-session')
+const session = require('express-session');
+const postCtrl = require('./postController');
 
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 
@@ -23,6 +24,12 @@ app.post('/auth/login', authCtrl.login)
 app.post('/auth/register', authCtrl.register)
 app.delete('/auth/logout', authCtrl.logout)
 app.get('/auth/user', authCtrl.getUser)
+
+//Posts:
+app.post('/api/post', postCtrl.createPost)
+app.get('/api/post', postCtrl.getPost)
+app.get('/api/posts', postCtrl.getAllPosts)
+app.delete('/api/post/:postid', postCtrl.deletePost)
 
 massive({
     connectionString: CONNECTION_STRING,
