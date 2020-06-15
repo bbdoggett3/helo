@@ -6,6 +6,9 @@
     /* justify-content: space-around; */
     align-items: space-between;
     background-image: linear-gradient(180deg, #ff9770 0%, #ff70A6 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .profile-pic {
@@ -14,7 +17,7 @@
     width: 80px;
     border-radius: 50%;
     margin-left: auto 0;
-    background-color: grey;
+    background-color: #f2f2f2;
     margin-top: 10px;
     margin-left: 25px;
     margin-bottom: 10px;
