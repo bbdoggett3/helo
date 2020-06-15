@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "../Nav/Nav";
 import { connect } from 'react-redux';
 import axios from 'axios';
+import "./Dashboard.css";
 
 class Dashboard extends Component {
   constructor() {
@@ -47,6 +48,7 @@ class Dashboard extends Component {
     return (
       <div>
         <div className="dashboard-search-container">
+          <div className="search-box">
           <input 
             className="search-bar" 
             placeholder="Search by title"
@@ -61,8 +63,7 @@ class Dashboard extends Component {
             onClick={this.getPosts}
             
           />
-          <button onClick={this.reset}>Reset</button>
-          My Posts:
+          <button className="reset-button-dash" onClick={this.reset}>Reset</button>
           <input
             type="checkbox"
             name="userposts"
@@ -70,9 +71,11 @@ class Dashboard extends Component {
             checked={userposts}
             onChange={this.handleCheckbox}
           />
-          <Nav />
+          <p>My Posts:</p>
+          </div>
+          
         </div>
- 
+        <Nav />
       </div>
     );
   }

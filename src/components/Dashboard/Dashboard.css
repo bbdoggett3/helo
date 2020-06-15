@@ -1,17 +1,44 @@
 .dashboard-search-container {
-    background-color: grey;
+    background-color: #f2f2f2;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: left;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box {
+    display: inline-block;
+    background-color: white;
+    height: 5vh;
+    width: 60vw;
+    margin:5px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-bar {
-    margin-top: 10px;
+    display: inline-block;
+    padding-right: 200px;
+    
 }
 
 #search-pic {
-    color: orange;
-    background-color: orange;
+    margin-top: 25px;
+    background-color: #ff9770;   
+}
+
+.reset-button-dash {
+    background-color: #403D39;
+    text-decoration: none;
+    border: none;
+    color: white;
+    padding:5px;
+}
+
+ #userposts {
+    margin-left: 120px;
 }
