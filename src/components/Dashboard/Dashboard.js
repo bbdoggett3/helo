@@ -15,6 +15,10 @@ class Dashboard extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getPosts();
+  }
+
   handleSearch = (event) => {
     this.setState({
         search: event.target.value
@@ -44,7 +48,20 @@ class Dashboard extends Component {
   }
 
   render() {
-      const {search, userposts, posts} = this.state
+      const {search, userposts} = this.state
+      let posts = this.state.posts.map(element => {
+        return(
+          <div key={element.id}
+               onClick={() => this.props.history.push(`/posts/${element.id}`)}
+               >
+            <div className="content-posts">
+              <h3>{element.title}</h3>
+              <p>User: {element.username}</p>
+            </div>
+            
+          </div>
+        )
+      })
     return (
       <div>
         <div className="dashboard-search-container">
@@ -73,7 +90,7 @@ class Dashboard extends Component {
           />
           <p>My Posts:</p>
           </div>
-          
+          {posts}
         </div>
         <Nav />
       </div>
